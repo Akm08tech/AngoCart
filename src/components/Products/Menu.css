@@ -1,0 +1,87 @@
+.header {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color:antiquewhite;
+  color: white;
+  height: 50px; 
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    max-width: 100%; /* Make the image responsive */
+    height: 150px; /* Maintain the image's aspect ratio */
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  .search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border-radius: 5%;
+    box-shadow: #f0f0f0;
+  }
+  
+  .search-bar input {
+    width: 150%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .search-bar button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .user-options button {
+
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Add media queries for responsiveness */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column; /* Stack elements vertically on smaller screens */
+      text-align: center; /* Center-align elements */
+    }
+  
+    .search-bar {
+      margin-top: 10px; /* Add some space between logo and search bar on smaller screens */
+    }
+  }
+  .add-to-cart-button{
+background-color: green;
+  }
+  .custom-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    color: grey;
+  }
+  
+  .input-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  input {
+    border: none;
+    outline: none;
+    flex: 1;
+  }
+  
