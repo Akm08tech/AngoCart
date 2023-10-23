@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import axios from 'axios';
 import phone_icon from '../../assets/phone_icon.png';
 import './Menu.css';
@@ -8,9 +8,11 @@ import Modal from '@mui/material/Modal';
 import  product_img  from '../../assets/product_img.png';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import { API_BASE_URL } from '../../config/Config';
+import { responsiveFontSizes } from '@mui/material';
 const Menu = () => {
     const [open, setOpen] = React.useState(false);
     const [step, setStep] = useState(1); 
+    const [otp, setotp] = useState(1); 
     const [phoneNumber, setPhoneNumber] = useState('');
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -34,8 +36,14 @@ const Menu = () => {
             if (step < 3) {
                 setStep(step + 1);
               }
+             
          
       }
+      useEffect(()=>{
+        axios.post('https://dev.techstreet.in/angocartecomm/public/api/v1/otp').then((response)=>{
+              setotp(response.otp);
+        });
+   })
       const handclose = () => {
         setOpen(false);
         setStep(1); // Reset the step when the modal is closed
@@ -101,7 +109,7 @@ const Menu = () => {
          
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           </Typography>
-          <h3>  Enter Four Dogit code send to your number {setPhoneNumber}</h3> 
+          <h3>  Enter Four Dogit code send to your number {phoneNumber}</h3> 
           <div style={{ display: 'flex', alignItems: 'center' }} className='custom-input'>
         <input type='text' placeholder=''  onChange={handleInputChange}  style={inputstyle}/>
       </div>
